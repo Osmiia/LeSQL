@@ -51,6 +51,9 @@ INSERT INTO Contract VALUES ('Pro','6','40')
 --Movie
 INSERT INTO Movie VALUES (11, 'Matrix, The', 122, 'Description of Matrix, The', 1999, NULL, NULL, '2.50', 'https://www.youtube.com/watch?v=oP3XFCdjRuw%27')
 INSERT INTO Movie VALUES (12, 'Matrix Reloaded, The', 106, 'Description of Matrix Reloaded, The', 2003, NULL, 11, '2.00', 'https://www.youtube.com/watch?v=jT4KEiUh7T4%27')
+INSERT INTO Movie VALUES (13, 'Matrix Revolutions, The', 129, 'Description of Matrix Revolutions, The', 2003, NULL, 11, '2.00', 'https://www.youtube.com/watch?v=hMbexEPAOQI')
+INSERT INTO Movie VALUES (14, 'Star Wars', 129, 'Description of Star Wars', 1977, NULL, 11, '3.00', 'https://www.youtube.com/watch?v=bD7bpG-zDJQ')
+
 
 --Customer
 INSERT INTO Customer VALUES ('peter@pan.de','Pan','Peter','Mastercard','0123456789','Basic','2014-10-01','2014-10-28','pp123','peterpass','The Netherlands','M','1971-06-26')
