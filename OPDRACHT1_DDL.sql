@@ -91,16 +91,43 @@ description	VARCHAR(255)	NULL,
 )
 go
 
---Primary Keys toevoegen
+/*Aanmaken van Primary keys*/
 ALTER TABLE Country
 ADD CONSTRAINT pk_Country
 PRIMARY KEY (country_name)
+
+ALTER TABLE Contract
+ADD CONSTRAINT pk_Contract
+PRIMARY KEY (contract_type)
+
+ALTER TABLE Payment
+ADD CONSTRAINT pk_Payment
+PRIMARY KEY (payment_method)
 
 ALTER TABLE Customer
 ADD CONSTRAINT pk_Customer
 PRIMARY KEY (customer_mail_address)
 
---Foreign Keys toevoegen
+ALTER TABLE Movie
+ADD CONSTRAINT pk_Movie
+PRIMARY KEY (movie_id)
+
+ALTER TABLE Person
+ADD CONSTRAINT pk_Person
+PRIMARY KEY (person_id)
+
+/*Aanmaken van foreign keys*/
+--Customer
 ALTER TABLE Customer
 ADD CONSTRAINT fk_Customer_Country
 FOREIGN KEY (country_name) REFERENCES Country (country_name)
+
+--WatchHisotry
+ALTER TABLE WatchHistory
+ADD CONSTRAINT fk_WatchHistory_Customer
+FOREIGN KEY (customer_mail_address) REFERENCES Customer (customer_mail_address)
+
+--Movie
+ALTER TABLE Movie
+ADD CONSTRAINT fk_MOVIE_previous_part_movie_id
+FOREIGN KEY (previous_part) REFERENCES Movie (movie_id)
