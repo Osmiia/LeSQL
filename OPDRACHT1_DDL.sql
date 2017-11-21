@@ -50,7 +50,7 @@ payment_method	VARCHAR(10)		NOT NULL,
 
 CREATE TABLE Movie_Cast(
 movie_id	INT				NOT NULL,
-personal_id	INT				NOT NULL,
+person_id	INT				NOT NULL,
 role		VARCHAR(255)	NOT NULL,
 )
 
@@ -73,7 +73,7 @@ firstname	VARCHAR(50)	NOT NULL,
 gender		CHAR(1)		NULL,
 )
 
-CREATE TABLE Movie_Director(
+CREATE TABLE Movie_Directors(
 movie_id	INT NOT NULL,
 person_id	INT	NOT NULL,
 )
@@ -108,13 +108,33 @@ ALTER TABLE Customer
 ADD CONSTRAINT pk_Customer
 PRIMARY KEY (customer_mail_address)
 
+ALTER TABLE WatchHistory
+ADD CONSTRAINT pk_WatchHistory
+PRIMARY KEY(movie_id, customer_mail_address, watch_date)
+
 ALTER TABLE Movie
 ADD CONSTRAINT pk_Movie
 PRIMARY KEY (movie_id)
 
+ALTER TABLE Movie_Cast
+ADD CONSTRAINT pk_Movie_Cast
+PRIMARY KEY (movie_id, person_id, role)
+
 ALTER TABLE Person
 ADD CONSTRAINT pk_Person
 PRIMARY KEY (person_id)
+
+ALTER TABLE Movie_Directors
+ADD CONSTRAINT pk_Movie_Directors
+PRIMARY KEY (movie_id, person_id)
+
+ALTER TABLE Genre
+ADD CONSTRAINT pk_Genre
+PRIMARY KEY (genre_name)
+
+ALTER TABLE Movie_Genre
+ADD CONSTRAINT pk_Movie_Genre
+PRIMARY KEY (movie_id, genre_name)
 
 /*Aanmaken van foreign keys*/
 --Customer
