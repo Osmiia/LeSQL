@@ -150,56 +150,81 @@ PRIMARY KEY (genre_name)
 ALTER TABLE Customer
 ADD CONSTRAINT fk_Customer_Country
 FOREIGN KEY (country_name) REFERENCES Country (country_name)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 
 ALTER TABLE Customer
 ADD CONSTRAINT fk_Customer_Contract
 FOREIGN KEY (contract_type) REFERENCES Contract (contract_type)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 
 ALTER TABLE Customer
 ADD CONSTRAINT fk_Customer_Payment
 FOREIGN KEY (payment_method) REFERENCES Payment (payment_method)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 
 
 --WatchHistory
 ALTER TABLE WatchHistory
 ADD CONSTRAINT fk_WatchHistory_Customer
 FOREIGN KEY (customer_mail_address) REFERENCES Customer (customer_mail_address)
+	ON UPDATE CASCADE
+	ON DELETE NO ACTION
 
 ALTER TABLE WatchHistory
 ADD CONSTRAINT fk_WatchHistory_Movie
 FOREIGN KEY (movie_id) REFERENCES Movie (movie_id)
+	ON UPDATE CASCADE
+	ON DELETE NO ACTION
 
 
 --Movie
 ALTER TABLE Movie
 ADD CONSTRAINT fk_MOVIE_previous_part_movie_id
 FOREIGN KEY (previous_part) REFERENCES Movie (movie_id)
+	ON UPDATE NO ACTION
+	ON DELETE NO ACTION
 
 
 --Movie_Cast
 ALTER TABLE Movie_Cast
 ADD CONSTRAINT fk_Movie_Cast_Movie
 FOREIGN KEY (movie_id) REFERENCES Movie (movie_id)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 
 ALTER TABLE Movie_Cast
 ADD CONSTRAINT fk_Movie_Cast_Person
 FOREIGN KEY (person_id) REFERENCES Person (person_id)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 
 
 --Movie_Directors
 ALTER TABLE Movie_Directors
 ADD CONSTRAINT fk_Movie_Directors_Person
 FOREIGN KEY (person_id) REFERENCES Person (person_id)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 
 ALTER TABLE Movie_Directors
 ADD CONSTRAINT fk_Movie_Directors_Movie
 FOREIGN KEY (movie_id) REFERENCES Movie (movie_id)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
+
 
 --Movie_Genre
 ALTER TABLE Movie_Genre
 ADD CONSTRAINT fk_Movie_Genre_Genre
 FOREIGN KEY (genre_name) REFERENCES Genre (genre_name)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
 
 ALTER TABLE Movie_Genre
 ADD CONSTRAINT fk_Movie_Genre_Movie
 FOREIGN KEY (movie_id) REFERENCES Movie (movie_id)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
