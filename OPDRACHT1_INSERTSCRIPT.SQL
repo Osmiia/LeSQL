@@ -1,7 +1,7 @@
 use Fletnix
 
 DELETE FROM Genre
-DELETE FROM Movie_Director
+DELETE FROM Movie_Directors
 DELETE FROM Movie_Cast
 DELETE FROM Movie_Genre
 DELETE FROM Country
@@ -20,10 +20,10 @@ INSERT INTO Genre VALUES ('Family','Movies suitable for a wide range of age grou
 INSERT INTO Genre VALUES ('Sci-Fi','Fictional movies dealing with imaginitive content such as futuristic settings, futuristic science and technology, space travel, time travel, parrallel universes and extraterrestrial life')
 
 --Movie_Director
-INSERT INTO Movie_Director VALUES ('11','83616')
-INSERT INTO Movie_Director VALUES ('11','83617')
-INSERT INTO Movie_Director VALUES ('12','83616')
-INSERT INTO Movie_Director VALUES ('12','83617')
+INSERT INTO Movie_Directors VALUES ('11','83616')
+INSERT INTO Movie_Directors VALUES ('11','83617')
+INSERT INTO Movie_Directors VALUES ('12','83616')
+INSERT INTO Movie_Directors VALUES ('12','83617')
 
 --Movie_Cast
 INSERT INTO Movie_Cast VALUES ('11','393411','Neo')
