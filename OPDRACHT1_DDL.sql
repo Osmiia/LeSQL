@@ -1,4 +1,4 @@
-use master
+USE master
 go
 
 DROP DATABASE Fletnix
@@ -19,7 +19,7 @@ contract_type		VARCHAR(10)		NOT NULL,
 price_per_month		NUMERIC(5,2)	NOT NULL,
 discount_percentage	NUMERIC (2)		NOT NULL,
 CONSTRAINT pk_Contract
-PRIMARY KEY (contract_type)
+PRIMARY KEY	(contract_type)
 )
 
 /********************
