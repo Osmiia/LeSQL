@@ -20,11 +20,11 @@ INSERT INTO Movie VALUES	(11, 'Matrix, The', 122, 'Description of Matrix, The', 
 
 
 --Person
-INSERT INTO Person VALUES	('83616','Nicht','Michael','M'),
-							('83617','de Visser','Bob','M'),
-							('393411','Neo','Nassi','M'),
-							('729933','Janssen','Famke','V'),
-							('151786','Vrijman','Morgen','M');
+INSERT INTO Person VALUES	('83616',	'Nicht',	'Michael',	'M'),
+							('83617',	'de Visser','Bob',		'M'),
+							('393411',	'Neo',		'Nassi',	'M'),
+							('729933',	'Janssen',	'Famke',	'V'),
+							('151786',	'Vrijman',	'Morgen',	'M');
 
 --Genre
 INSERT INTO Genre VALUES	('Action','Creative works characterized by emphasis on exciting action sequences'),
@@ -33,10 +33,10 @@ INSERT INTO Genre VALUES	('Action','Creative works characterized by emphasis on 
 							('Sci-Fi','Fictional movies dealing with imaginitive content such as futuristic settings, futuristic science and technology, space travel, time travel, parrallel universes and extraterrestrial life');
 
 --Movie_Directors
-INSERT INTO Movie_Directors VALUES	('11','83616'),
-									('11','83617'),
-									('12','83616'),
-									('12','83617');
+INSERT INTO Movie_Directors VALUES	(11,'83616'),
+									(11,'83617'),
+									(12,'83616'),
+									(12,'83617');
 
 --Movie_Cast
 INSERT INTO Movie_Cast VALUES	(11,'393411','Neo'),
@@ -74,6 +74,6 @@ INSERT INTO Customer VALUES ('peter@pan.de','Pan','Peter','Mastercard','01234567
 							('Joris@Huinink.nl','Huinink','Joris','Mastercard','696969420','Premium','2017-12-14','2019-12-30','jorisdecooleboi','joris928347947','The Netherlands','M','1998-11-05');
 
 --Watchhistory
-INSERT INTO watchhistory VALUES ('11','peter@pan.de','01-10-2014','2.50','1'),
-('11','peter@pan.de','02-10-2014','2.50','0'),
-('12','guy@monk.nl','10-03-2014','2.00','0');
+INSERT INTO watchhistory VALUES ('11','peter@pan.de','2014-10-02','2.50','1'),
+								('11','peter@pan.de','02-10-2014','2.50','0'),
+								('12','guy@monk.nl','10-03-2014','2.00','0');
