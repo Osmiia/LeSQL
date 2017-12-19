@@ -1,4 +1,4 @@
-use		Fletnix
+use		FLETNIX_DOCENT
 
 -- 3A
 SELECT		M.title, M.publication_year, G.genre_name
@@ -24,7 +24,7 @@ SELECT P.person_id, M.title, P.firstname, P.lastname, MC.role
 FROM Movie_Cast MC, Person P, Movie M
 WHERE	MC.person_id = P.person_id
 	AND	MC.movie_id =  M.movie_id
-	AND title LIKE '%Terminator%'
+	AND title LIKE 'Terminator%'
 	AND publication_year = 1991
 
 --3E
