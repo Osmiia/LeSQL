@@ -61,7 +61,7 @@ gender		CHAR(1)		NULL,
 CONSTRAINT pk_Person
 PRIMARY KEY (person_id),
 CONSTRAINT ck_Gender
-CHECK (gender IN ('M','V'))
+CHECK (gender IN ('M','F'))
 )
 
 /********************
@@ -179,7 +179,8 @@ FOREIGN KEY (contract_type) REFERENCES Contract (contract_type)
 CONSTRAINT ck_Subscription_start
 CHECK (subscription_start < subscription_end),
 CONSTRAINT uk_User_name
-UNIQUE (user_name)
+UNIQUE (user_name),
+CHECK (gender IN ('M','F'))
 )
 
 /********************
