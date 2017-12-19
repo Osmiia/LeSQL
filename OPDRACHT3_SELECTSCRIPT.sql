@@ -37,7 +37,11 @@ WHERE MC.movie_id = M.movie_id
 
 
 --3F
-
+SELECT C.lastname, C.firstname, SUM(W.price) AS 'total price'
+FROM Watchhistory W, Customer C
+WHERE W.customer_mail_address = C.customer_mail_address
+	AND W.invoiced = 0
+GROUP BY C.lastname, C.firstname
 
 
 --3G

@@ -198,7 +198,7 @@ CONSTRAINT fk_WatchHistory_Customer
 FOREIGN KEY (customer_mail_address) REFERENCES Customer (customer_mail_address)
 	ON UPDATE CASCADE
 	ON DELETE NO ACTION,
-	CONSTRAINT fk_WatchHistory_Movie
+CONSTRAINT fk_WatchHistory_Movie
 FOREIGN KEY (movie_id) REFERENCES Movie (movie_id)
 	ON UPDATE CASCADE
 	ON DELETE NO ACTION

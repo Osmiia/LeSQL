@@ -74,6 +74,7 @@ INSERT INTO Customer VALUES ('peter@pan.de',		'Pan',			'Peter',	'Mastercard',	'0
 							('Joris@Huinink.nl',	'Huinink',		'Joris',	'Mastercard',	'696969420','Premium',	'2017-12-14',	'2019-12-30',	'jorisdecooleboi',	'joris928347947',		'The Netherlands',	'M',	'1998-11-05');
 
 --Watchhistory
-INSERT INTO watchhistory VALUES ('11',	'peter@pan.de',	'2014-09-02',	'2.50',	1),
-								('11',	'peter@pan.de',	'2014-10-01',	'2.50',	0),
-								('12',	'guy@monk.nl',	'2014-10-03',	'2.00',	0);
+INSERT INTO watchhistory VALUES ('11',	'peter@pan.de',	'2014-10-01',	'2.50',	0),
+								('11',	'peter@pan.de',	'2014-10-02',	'2.50',	0),
+								('13',	'guy@monk.nl',	'2014-10-02',	'2.00',	0);
+								

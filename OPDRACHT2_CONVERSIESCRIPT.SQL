@@ -1,0 +1,13 @@
+USE Fletnix
+
+DELETE FROM Movie_Directors
+DELETE FROM Person
+DELETE FROM Watchhistory
+DELETE FROM Genre
+DELETE FROM Movie_Cast
+DELETE FROM Movie_Genre
+DELETE FROM Country
+DELETE FROM Payment
+DELETE FROM Contract
+DELETE FROM Customer
+DELETE FROM Movie
