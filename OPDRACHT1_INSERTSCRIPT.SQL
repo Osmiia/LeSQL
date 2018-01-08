@@ -20,11 +20,11 @@ INSERT INTO Movie VALUES	(11, 'Matrix, The',				122,	'Description of Matrix, The
 
 
 --Person
-INSERT INTO Person VALUES	('83616',	'Nicht',	'Michael',	'M'),
-							('83617',	'de Visser','Bob',		'M'),
-							('393411',	'Neo',		'Nassi',	'M'),
-							('729933',	'Janssen',	'Famke',	'F'),
-							('151786',	'Vrijman',	'Morgen',	'M');
+INSERT INTO Person VALUES	('Nicht',	'Michael',	'M'),
+							('de Visser','Bob',		'M'),
+							('Neo',		'Nassi',	'M'),
+							('Janssen',	'Famke',	'F'),
+							('Vrijman',	'Morgen',	'M');
 
 --Genre
 INSERT INTO Genre VALUES	('Action',	'Creative works characterized by emphasis on exciting action sequences'),
@@ -33,15 +33,18 @@ INSERT INTO Genre VALUES	('Action',	'Creative works characterized by emphasis on
 							('Sci-Fi',	'Fictional movies dealing with imaginitive content such as futuristic settings, futuristic science and technology, space travel, time travel, parrallel universes and extraterrestrial life');
 
 --Movie_Directors
-INSERT INTO Movie_Directors VALUES	(11,	'83616'),
-									(11,	'83617'),
-									(12,	'83616'),
-									(12,	'83617');
+INSERT INTO		Movie_Directors
+VALUES			(11,	(SELECT	person_id	FROM Person		WHERE lastname = 'Nicht'	AND	firstname =	'Michael')),
+				(11,	(SELECT	person_id	FROM Person		WHERE lastname = 'Neo'		AND	firstname =	'Nassi')),
+				(12,	(SELECT	person_id	FROM Person		WHERE lastname = 'Nicht'	AND	firstname =	'Michael')),
+				(12,	(SELECT	person_id	FROM Person		WHERE lastname = 'Neo'		AND	firstname =	'Nassi'));
+
 
 --Movie_Cast
-INSERT INTO Movie_Cast VALUES	(11,	'393411',	'Neo'),
-								(11,	'729933',	'Trinity'),
-								(11,	'151786',	'Morpheus');
+INSERT INTO Movie_Cast
+VALUES		(11,	(SELECT	person_id	FROM Person		WHERE lastname = 'Neo'		AND	firstname =	'Nassi'),	'Neo'),
+			(11,	(SELECT	person_id	FROM Person		WHERE lastname = 'Janssen'	AND	firstname = 'Famke'),	'Trinity'),
+			(11,	(SELECT	person_id	FROM Person		WHERE lastname = 'Vrijman'	AND	firstname =	'Morgen'),	'Morpheus');
 
 --Movie_Genre
 INSERT INTO Movie_Genre VALUES	(11,	'Action'),

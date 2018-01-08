@@ -54,7 +54,7 @@ PRIMARY KEY (payment_method)
 TABLE: PERSON
 ********************/
 CREATE TABLE Person(
-person_id	INT			NOT NULL,
+person_id	INT			IDENTITY(1,1),
 lastname	VARCHAR(50) NOT NULL,
 firstname	VARCHAR(50)	NOT NULL,
 gender		CHAR(1)		NULL,
