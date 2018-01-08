@@ -43,10 +43,15 @@ FROM		MYIMDB.dbo.Imported_Movie
 --Imported_Cast
 INSERT INTO Fletnix.dbo.Movie_Cast
 SELECT DISTINCT	CAST	(Mid AS int)	AS movie_id,
-				CAST	(Pid as int) + 
+				CAST	(Pid AS int) + 
 								(SELECT TOP 1 CAST(id AS INT) AS person_id 
 								FROM MYIMDB.dbo.Imported_Directors
 								ORDER BY person_id desc)
 										AS person_id,
 				LEFT(Role, 255)			AS role
 FROM MYIMDB.dbo.Imported_Cast
+
+--Imported_Directors_Genre (genre)
+INSERT INTO Fletnix.dbo.Genre (genre_name)
+SELECT DISTINCT LEFT (genre, 255) AS genre_name
+FROM MYIMDB.dbo.Imported_Director_Genre
