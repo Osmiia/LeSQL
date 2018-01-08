@@ -20,11 +20,11 @@ INSERT INTO Movie VALUES	(11, 'Matrix, The',				122,	'Description of Matrix, The
 
 
 --Person
-INSERT INTO Person VALUES	('Nicht',	'Michael',	'M'),
-							('de Visser','Bob',		'M'),
-							('Neo',		'Nassi',	'M'),
-							('Janssen',	'Famke',	'F'),
-							('Vrijman',	'Morgen',	'M');
+INSERT INTO Person VALUES	(11111, 'Nicht',	'Michael',	'M'),
+							(22222, 'de Visser','Bob',		'M'),
+							(33333, 'Neo',		'Nassi',	'M'),
+							(44444, 'Janssen',	'Famke',	'F'),
+							(55555, 'Vrijman',	'Morgen',	'M');
 
 --Genre
 INSERT INTO Genre VALUES	('Action',	'Creative works characterized by emphasis on exciting action sequences'),

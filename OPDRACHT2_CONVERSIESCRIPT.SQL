@@ -14,14 +14,27 @@ DELETE FROM Movie
 
 --Imported_Directors
 INSERT INTO Fletnix.dbo.Person
-SELECT LEFT (LName, 50) AS lastname,
-	LEFT (FName, 50) AS firstname,
-	NULL AS gender
-FROM MYIMDB.dbo.Imported_Directors
+SELECT		CAST (id AS int)	AS person_id,
+			LEFT (LName, 50)	AS lastname,
+			LEFT (FName, 50)	AS firstname,
+			NULL				AS gender
+FROM		MYIMDB.dbo.Imported_Directors
 
 --Imported_Person
 INSERT INTO Fletnix.dbo.Person
-SELECT LEFT (LName, 50) AS lastname,
-	LEFT (FName, 50) AS Firstname,
-	CAST(Gender AS char(1)) AS gender
-FROM MYIMDB.dbo.Imported_Person
+SELECT		CAST (id AS int) + 
+								(SELECT TOP 1 CAST(id AS INT) AS person_id 
+								FROM MYIMDB.dbo.Imported_Directors
+								ORDER BY person_id desc)
+										AS person_id,
+			LEFT (LName, 50)			AS lastname,
+			LEFT (FName, 50)			AS Firstname,
+			CAST (Gender AS char(1))	AS gender
+FROM		MYIMDB.dbo.Imported_Person
+
+--Imported_Movie
+INSERT INTO Fletnix.dbo.Movie (movie_id, title, publication_year)
+SELECT		CAST (Id AS int)	AS movie_id,
+			LEFT (Name, 255)	AS title,
+			CAST (Year AS int)	AS publication_year
+FROM		MYIMDB.dbo.Imported_Movie
