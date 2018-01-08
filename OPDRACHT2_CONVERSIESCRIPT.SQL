@@ -33,8 +33,20 @@ SELECT		CAST (id AS int) +
 FROM		MYIMDB.dbo.Imported_Person
 
 --Imported_Movie
-INSERT INTO Fletnix.dbo.Movie (movie_id, title, publication_year)
+INSERT INTO Fletnix.dbo.Movie (movie_id, title, publication_year, price)
 SELECT		CAST (Id AS int)	AS movie_id,
 			LEFT (Name, 255)	AS title,
-			CAST (Year AS int)	AS publication_year
+			CAST (Year AS int)	AS publication_year,
+			999.99				AS price
 FROM		MYIMDB.dbo.Imported_Movie
+
+--Imported_Cast
+INSERT INTO Fletnix.dbo.Movie_Cast
+SELECT DISTINCT	CAST	(Mid AS int)	AS movie_id,
+				CAST	(Pid as int) + 
+								(SELECT TOP 1 CAST(id AS INT) AS person_id 
+								FROM MYIMDB.dbo.Imported_Directors
+								ORDER BY person_id desc)
+										AS person_id,
+				LEFT(Role, 255)			AS role
+FROM MYIMDB.dbo.Imported_Cast
