@@ -1,3 +1,7 @@
+/*ATTENTIE: Bij het toevoegen van een nieuw persoon, die geen director is,
+moet de volgende subquery worden toegevoegd om errors met person_id te voorkomen */
+
+
 USE Fletnix
 
 DELETE FROM Movie_Directors
@@ -51,7 +55,14 @@ SELECT DISTINCT	CAST	(Mid AS int)	AS movie_id,
 				LEFT(Role, 255)			AS role
 FROM MYIMDB.dbo.Imported_Cast
 
---Imported_Directors_Genre (genre)
-INSERT INTO Fletnix.dbo.Genre (genre_name)
-SELECT DISTINCT LEFT (genre, 255) AS genre_name
-FROM MYIMDB.dbo.Imported_Director_Genre
+--Imported_Genre_ Genre
+INSERT INTO Fletnix.dbo.Genre
+SELECT DISTINCT LEFT (genre, 255),
+				LEFT ('Description of the genre '+ genre, 255)
+FROM MYIMDB.dbo.Imported_Genre
+
+--Imported_Genre > Movie_Genre
+INSERT INTO Fletnix.dbo.Movie_Genre
+SELECT DISTINCT		CAST (Id AS int) AS movie_id,
+					LEFT (Genre, 255) AS genre_name
+FROM MYIMDB.dbo.Imported_Genre
