@@ -66,3 +66,9 @@ INSERT INTO Fletnix.dbo.Movie_Genre
 SELECT DISTINCT		CAST (Id AS int) AS movie_id,
 					LEFT (Genre, 255) AS genre_name
 FROM MYIMDB.dbo.Imported_Genre
+
+--Imported_Movie_Directors
+INSERT INTO Fletnix.dbo.Movie_Directors
+SELECT	CAST (Mid AS int) AS movie_id,
+		CAST (Did AS int) AS person_id
+FROM MYIMDB.dbo.Imported_Movie_Directors
