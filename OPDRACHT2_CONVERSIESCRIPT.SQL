@@ -1,5 +1,10 @@
-/*ATTENTIE: Bij het toevoegen van een nieuw persoon, die geen director is,
-moet de volgende subquery worden toegevoegd om errors met person_id te voorkomen */
+/*
+ATTENTIE: Bij het toevoegen van een nieuw persoon, die geen director is,
+moet de volgende code worden opgeteld bij om duplicaten met het person_id te voorkomen:
+	(SELECT TOP 1 CAST(id AS INT) AS person_id 
+	FROM MYIMDB.dbo.Imported_Directors
+	ORDER BY person_id desc)
+*/
 
 
 USE Fletnix
