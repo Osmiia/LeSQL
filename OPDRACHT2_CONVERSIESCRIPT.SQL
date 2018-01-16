@@ -60,7 +60,7 @@ SELECT DISTINCT	CAST	(Mid AS int)	AS movie_id,
 				LEFT(Role, 255)			AS role
 FROM MYIMDB.dbo.Imported_Cast
 
---Imported_Genre_ Genre
+--Imported_Genre
 INSERT INTO Fletnix.dbo.Genre
 SELECT DISTINCT LEFT (genre, 255),
 				LEFT ('Description of the genre '+ genre, 255)
