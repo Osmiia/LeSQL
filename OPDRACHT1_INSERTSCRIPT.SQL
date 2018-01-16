@@ -12,6 +12,12 @@ DELETE FROM Contract
 DELETE FROM Customer
 DELETE FROM Movie
 
+--Genre
+INSERT INTO Genre VALUES	('Action',	'Creative works characterized by emphasis on exciting action sequences'),
+							('Drama',	'Fictional devision between comedy and tragedy'),
+							('Family',	'Movies suitable for a wide range of age groups'),
+							('Sci-Fi',	'Fictional movies dealing with imaginitive content such as futuristic settings, futuristic science and technology, space travel, time travel, parrallel universes and extraterrestrial life');
+
 --Movie
 INSERT INTO Movie VALUES	(11, 'Matrix, The',				122,	'Description of Matrix, The',				1999,	NULL,	NULL,	'2.50',	'https://www.youtube.com/watch?v=oP3XFCdjRuw%27'),
 							(12, 'Matrix Reloaded, The',	106,	'Description of Matrix Reloaded, The',		2003,	NULL,	11,		'2.00',	'https://www.youtube.com/watch?v=jT4KEiUh7T4%27'),
@@ -26,20 +32,6 @@ INSERT INTO Person VALUES	(11111, 'Nicht',	'Michael',	'M'),
 							(44444, 'Janssen',	'Famke',	'F'),
 							(55555, 'Vrijman',	'Morgen',	'M');
 
---Genre
-INSERT INTO Genre VALUES	('Action',	'Creative works characterized by emphasis on exciting action sequences'),
-							('Drama',	'Fictional devision between comedy and tragedy'),
-							('Family',	'Movies suitable for a wide range of age groups'),
-							('Sci-Fi',	'Fictional movies dealing with imaginitive content such as futuristic settings, futuristic science and technology, space travel, time travel, parrallel universes and extraterrestrial life');
-
---Movie_Directors
-INSERT INTO		Movie_Directors
-VALUES			(11,	(SELECT	person_id	FROM Person		WHERE lastname = 'Nicht'	AND	firstname =	'Michael')),
-				(11,	(SELECT	person_id	FROM Person		WHERE lastname = 'Neo'		AND	firstname =	'Nassi')),
-				(12,	(SELECT	person_id	FROM Person		WHERE lastname = 'Nicht'	AND	firstname =	'Michael')),
-				(12,	(SELECT	person_id	FROM Person		WHERE lastname = 'Neo'		AND	firstname =	'Nassi'));
-
-
 --Movie_Cast
 INSERT INTO Movie_Cast
 VALUES		(11,	(SELECT	person_id	FROM Person		WHERE lastname = 'Neo'		AND	firstname =	'Nassi'),	'Neo'),
@@ -49,6 +41,13 @@ VALUES		(11,	(SELECT	person_id	FROM Person		WHERE lastname = 'Neo'		AND	firstnam
 --Movie_Genre
 INSERT INTO Movie_Genre VALUES	(11,	'Action'),
 								(11,	'Sci-Fi');
+
+--Movie_Directors
+INSERT INTO		Movie_Directors
+VALUES			(11,	(SELECT	person_id	FROM Person		WHERE lastname = 'Nicht'	AND	firstname =	'Michael')),
+				(11,	(SELECT	person_id	FROM Person		WHERE lastname = 'Neo'		AND	firstname =	'Nassi')),
+				(12,	(SELECT	person_id	FROM Person		WHERE lastname = 'Nicht'	AND	firstname =	'Michael')),
+				(12,	(SELECT	person_id	FROM Person		WHERE lastname = 'Neo'		AND	firstname =	'Nassi'));
 
 --Country
 INSERT INTO Country VALUES	('The Netherlands'),
