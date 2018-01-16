@@ -10,6 +10,11 @@ go
 use Fletnix
 go
 
+
+/********************
+FUCNTION
+********************/
+
 CREATE FUNCTION dbo.fnCK_WatchdateTussenAbbonement
 (@watchdate DATE, @customer_mail_address varchar(255))
 RETURNS BIT
@@ -34,7 +39,9 @@ contract_type		VARCHAR(10)		NOT NULL,
 price_per_month		NUMERIC(5,2)	NOT NULL,
 discount_percentage	NUMERIC (2)		NOT NULL,
 CONSTRAINT pk_Contract
-PRIMARY KEY	(contract_type)
+PRIMARY KEY	(contract_type),
+CONSTRAINT ck_discount_percentage
+CHECK (discount_percentage >= 0)
 )
 
 /********************
@@ -99,8 +106,9 @@ FOREIGN KEY (previous_part) REFERENCES Movie (movie_id)
 	ON UPDATE NO ACTION
 	ON DELETE NO ACTION,
 CONSTRAINT ck_Publication_year
-CHECK (publication_year BETWEEN 1890 AND 2018)
-)
+CHECK (publication_year BETWEEN 1890 AND YEAR(GetDate())),
+CONSTRAINT ck_duration
+CHECK (duration >= 0))
 
 /********************
 TABLE: MOVIE CAST
@@ -195,7 +203,9 @@ CONSTRAINT ck_Subscription_start
 CHECK (subscription_start < subscription_end),
 CONSTRAINT uk_User_name
 UNIQUE (user_name),
-CHECK (gender IN ('M','F'))
+CHECK (gender IN ('M','F')),
+CONSTRAINT ck_mailaddress
+CHECK (customer_mail_address LIKE '%@%''%.%')
 )
 
 /********************
