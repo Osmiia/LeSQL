@@ -98,9 +98,6 @@ VALUES ('HeijrinkG@gmail.com', 'Heijrink', 'Gerben', 'Creditcard', '123456789', 
 INSERT INTO Watchhistory
 VALUES ('1', 'HeijrinkG@gmail.com', '2018-06-06', '2.50', '0')
 --Onjuist
-INSERT INTO Customer
-VALUES ('KDeHeer@hotmail.com', 'de Heer', 'Karel', 'Creditcard', '123456789', 'Basic', '2018-01-01', '2018-12-31', 'KdeHeer', 'Hopjesvla', 'The Netherlands', 'M', '1980-03-19')
-
 INSERT INTO Watchhistory
 VALUES ('1', 'HeijrinkG@gmail.com', '2017-09-03', '2.50', '0')
 
