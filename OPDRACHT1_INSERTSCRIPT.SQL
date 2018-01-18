@@ -78,7 +78,6 @@ INSERT INTO Customer VALUES ('peter@pan.de',		'Pan',			'Peter',	'Mastercard',	'0
 --Watchhistory
 INSERT INTO watchhistory VALUES ('11',	'peter@pan.de',	'2014-10-01',	0,	0),
 								('12',	'peter@pan.de',	'2014-10-02',	0,	0),
-								('13',	'peter@pan.de',	'2014-10-02',	0,	0);
-INSERT INTO Watchhistory (price)
-VALUES ((SELECT M.price FROM Movie M , Watchhistory W WHERE M.movie_id = W.movie_id))
+								('13',	'peter@pan.de',	'2014-10-02',	0,	0),
+								('11',  'guy@monk.nl',	'2017-11-16',	0,	0);
 								
